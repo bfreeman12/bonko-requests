@@ -1,0 +1,19 @@
+.footer-container {
+  background-color: var(--low-opacity-background);
+  height: 2rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  /* border-top: var(--border); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.footer-container h5 {
+  margin: 0px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
