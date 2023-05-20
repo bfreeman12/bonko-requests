@@ -20,6 +20,7 @@ const Home = () => {
   function closeModal() {
     setIsOpen(false)
   }
+
   return (
     <div className="page-container">
       <div className="body-container">
@@ -74,7 +75,7 @@ const Home = () => {
                     <h3>Status</h3>
                   </div>
                   <div className="col">
-                    <h3>Days Since Request</h3>
+                    <h3>Date Requested</h3>
                   </div>
                 </row>
                 <QueryClientProvider client={queryclient}>
