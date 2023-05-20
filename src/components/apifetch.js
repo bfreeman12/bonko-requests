@@ -1,8 +1,13 @@
-import axios from "axios"
+import axios from "axios";
 
 async function fetchRequests() {
-    const { data } = await axios.get('localhost:8000/api/requests')
-    return data
+    try {
+        const response = await axios.get('http://10.0.0.248:8000/api/requests');
+        return response.data.data;
+    } catch (error) {
+        console.error('Error fetching requests:', error);
+        throw error;
+    }
 }
 
-export default fetchRequests
+export default fetchRequests;

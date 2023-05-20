@@ -1,8 +1,13 @@
 const express = require('express')
 const app = express()
 const db = require('./database.js')
+const cors = require('cors')
 
 const http_port = 8000
+
+app.use(cors({
+    origin: 'http://10.0.0.248:3000'
+}))
 
 app.listen(http_port, () => {
     console.log(`Server running on port ${http_port}`);
