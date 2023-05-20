@@ -11,7 +11,6 @@ import FormattedRows from "./rows";
 
 const queryclient = new QueryClient()
 const Home = () => {
-
   return (
     <div className="page-container">
       <div className="body-container">
