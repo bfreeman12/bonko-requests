@@ -25,3 +25,8 @@ body {
   color: var(--bonko-text);
   overflow: hidden;
 }
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}

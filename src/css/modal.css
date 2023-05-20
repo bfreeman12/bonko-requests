@@ -24,7 +24,9 @@
   width: 100%;
   padding: 4rem 4rem;
   box-sizing: border-box;
-  overflow: auto
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
 }
 
 .modal-info-input-container {
@@ -76,9 +78,51 @@ input {
   color: var(--bonko-text);
   padding: .5rem 1rem;
   margin-top: .25rem;
-  border-radius: .25rem
+  border-radius: .25rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-content-container form textarea {
   height: 10vh;
+}
+
+.modal-content-container form button {
+  height: auto;
+  border: none;
+  background-color: var(--low-opacity-background);
+  color: var(--bonko-text);
+  border-radius: .25rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-content-container form button:hover {
+  cursor: pointer;
+  background-color: var(--bonko-primary-darker);
+}
+
+.modal-info-output-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* background-color: rgb(39, 39, 39); */
+  padding: 0rem 8rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.modal-info-output-container h2 {
+  font-weight: 300;
+  text-align: right;
+}
+
+.modal-info-output-container p {
+  font-weight: 300;
+  text-align: right;
+}
+
+.modal-info-output-container p:first-of-type {
+  font-weight: 300;
+  text-align: left;
 }
