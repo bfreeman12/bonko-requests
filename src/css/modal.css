@@ -76,9 +76,25 @@ input {
   color: var(--bonko-text);
   padding: .5rem 1rem;
   margin-top: .25rem;
-  border-radius: .25rem
+  border-radius: .25rem;
+  max-width: 100%;
 }
 
 .modal-content-container form textarea {
   height: 10vh;
+}
+
+.modal-content-container form button {
+  height: auto;
+  border: none;
+  background-color: var(--low-opacity-background);
+  color: var(--bonko-text);
+  border-radius: .25rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.modal-content-container form button:hover {
+  cursor: pointer;
+  background-color: var(--bonko-primary-darker);
 }

@@ -52,6 +52,7 @@ const Home = () => {
                         <input></input>
                         <label>Office</label>
                         <input></input>
+                        <button type="submit">Submit Ticket</button>
                       </form>
                     </div>
                   </div>
