@@ -1,9 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-regular-svg-icons"
-import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
+// import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { useQuery } from 'react-query'
 import fetchRequests from '../functions/apifetch';
-
 
 const FormattedRows = () => {
     const { data, error, isError, isLoading } = useQuery('userRequests', fetchRequests);

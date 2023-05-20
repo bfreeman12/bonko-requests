@@ -1,9 +1,10 @@
 import { React, useState } from "react";
 import Footer from "../functional-components/footer";
-import { Query, QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Modal from 'react-modal';
 import "../css/style.css";
 import "../css/home.css";
+import "../css/modal.css"
 import BonkoImg from "../media/bonko.png";
 import FormattedRows from "./rows";
 
@@ -33,7 +34,29 @@ const Home = () => {
             <div className="tabs-wrapper">
               <div className="tab">
                 <button onClick={openModal}>Submit Request</button>
-                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="test modal"></Modal>
+                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="test modal" className='modal' overlayClassName="overlay">
+                  <div className="modal-content-container">
+                    <div className="modal-info-input-container">
+                      <div className="submit-ticket-header">
+                        <h1>Submit a Ticket</h1>
+                        <button onClick={closeModal}>Close Modal</button>
+                      </div>
+                      <form>
+                        <label>Request</label>
+                        <input></input>
+                        <label>Description</label>
+                        <textarea></textarea>
+                        <label>Name</label>
+                        <input></input>
+                        <label>Email</label>
+                        <input></input>
+                        <label>Office</label>
+                        <input></input>
+                      </form>
+                    </div>
+                  </div>
+
+                </Modal>
               </div>
             </div>
           </div>

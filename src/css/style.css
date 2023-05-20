@@ -1,5 +1,5 @@
 :root {
-  --bonko-background: rgba(66,66,66,0.9);
+  --bonko-background: #0d1117;
 
   --primary-hue-rotate: 200deg;
   --bonko-primary-key: var(--primary-hue-rotate), 100%;
@@ -14,6 +14,7 @@
 
   --border: 1px var(--bonko-primary-darker) solid;
   --low-opacity-background: hsl(var(--bonko-primary-key), 80%, 10%);
+  --low-opacity-background-secondary: hsl(var(--bonko-primary-key), 80%, 5%);
 }
 
 body {
