@@ -53,6 +53,9 @@ h3 {
 
 .tabs-wrapper {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tabs-wrapper button {
@@ -60,17 +63,10 @@ h3 {
 }
 
 .tab {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 8vw;
-  height: 35%;
-  min-width: 8vw;
-  min-height: 35%;
+  padding: 1rem;
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: var(--low-opacity-background);
   transition-duration: 0.25s;
@@ -132,6 +128,8 @@ h3 {
   flex-direction: row;
   align-items: center;
 }
+
+
 
 .data-wrapper {
   display: flex;

@@ -1,0 +1,84 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--low-opacity-background);
+}
+
+.modal {
+  position: absolute;
+  top: 4rem;
+  left: 16rem;
+  right: 16rem;
+  bottom: 4rem;
+  box-sizing: border-box;
+
+}
+
+.modal-content-container {
+  background-color: var(--bonko-background);
+  border-radius: .25rem;
+  height: 100%;
+  width: 100%;
+  padding: 4rem 4rem;
+  box-sizing: border-box;
+  overflow: auto
+}
+
+.modal-info-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: 2rem;
+}
+
+.submit-ticket-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.submit-ticket-header h1 {
+  margin: 0px;
+  font-weight: 300;
+}
+
+.submit-ticket-header button {
+  height: auto;
+  border: none;
+  background-color: var(--low-opacity-background);
+  color: var(--bonko-text);
+  border-radius: .25rem;
+  padding: .5rem;
+}
+
+.submit-ticket-header button:hover {
+  cursor: pointer;
+  background-color: var(--bonko-primary-darker);
+}
+
+.modal-content-container form {
+  display: flex;
+  flex-direction: column;
+  /* width: 50%; */
+}
+
+.modal-content-container form label {
+  padding-top: 1rem;
+}
+
+.modal-content-container form textarea,
+input {
+  background-color: var(--low-opacity-background);
+  border: none;
+  color: var(--bonko-text);
+  padding: .5rem 1rem;
+  margin-top: .25rem;
+  border-radius: .25rem
+}
+
+.modal-content-container form textarea {
+  height: 10vh;
+}
