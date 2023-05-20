@@ -1,17 +1,24 @@
-import React from "react";
+import { React, useState } from "react";
 import Footer from "../functional-components/footer";
 import { Query, QueryClient, QueryClientProvider, useQuery } from "react-query";
-
-// import BonkoImage from "../media/bonko.png";
-
+import Modal from 'react-modal';
 import "../css/style.css";
 import "../css/home.css";
 import BonkoImg from "../media/bonko.png";
 import FormattedRows from "./rows";
 
 const queryclient = new QueryClient()
+Modal.setAppElement('#root')
+
 const Home = () => {
 
+  const [modalIsOpen, setIsOpen] = useState(false)
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
   return (
     <div className="page-container">
       <div className="body-container">
@@ -25,7 +32,8 @@ const Home = () => {
             </div>
             <div className="tabs-wrapper">
               <div className="tab">
-                <button>Submit Request</button>
+                <button onClick={openModal}>Submit Request</button>
+                <Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="test modal"></Modal>
               </div>
             </div>
           </div>

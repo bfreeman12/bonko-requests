@@ -1,5 +1,5 @@
 :root {
-  --bonko-background: brown;
+  --bonko-background: rgba(66,66,66,0.9);
 
   --primary-hue-rotate: 200deg;
   --bonko-primary-key: var(--primary-hue-rotate), 100%;

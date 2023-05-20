@@ -4,11 +4,6 @@ import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { useQuery } from 'react-query'
 import fetchRequests from '../functions/apifetch';
 
-// function orderList(data) {
-//     var orderedList = []
-
-// }
-
 
 const FormattedRows = () => {
     const { data, error, isError, isLoading } = useQuery('userRequests', fetchRequests);

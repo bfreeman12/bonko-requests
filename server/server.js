@@ -3,10 +3,11 @@ const app = express()
 const db = require('./database.js')
 const cors = require('cors')
 
-const http_port = 8420
+const hostIp = '10.0.0.248'
+const http_port = 8000
 
 app.use(cors({
-    origin: 'http://192.168.0.192:3000'
+    origin: `http://${hostIp}:3000`
 }))
 
 app.listen(http_port, () => {
