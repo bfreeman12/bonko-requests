@@ -3,7 +3,9 @@ import axios from "axios";
 async function fetchRequests() {
     try {
         const response = await axios.get('http://10.0.0.248:8000/api/requests');
-        return response.data.data;
+        const data = response.data.data;
+        data.sort((firstElement, secondElement) => secondElement.upvotes - firstElement.upvotes);
+        return data
     } catch (error) {
         console.error('Error fetching requests:', error);
         throw error;
