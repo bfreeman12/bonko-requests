@@ -2,10 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHeart } from "@fortawesome/free-regular-svg-icons"
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { useQuery } from 'react-query'
-import fetchRequests from './apifetch';
+import fetchRequests from '../functions/apifetch';
+
+// function orderList(data) {
+//     var orderedList = []
+
+// }
 
 
-const RowTemplate = () => {
+const FormattedRows = () => {
     const { data, error, isError, isLoading } = useQuery('userRequests', fetchRequests);
 
     if (isLoading) {
@@ -16,18 +21,22 @@ const RowTemplate = () => {
         return <div>Error! {error.message}</div>;
     }
     return (
-        <div>
+        <div className="data-wrapper">
             {data.map((row, index) => (
                 <div className="row" key={index}>
-                    <div className="col">{row.request}</div>
-                    <div className="col">{row.requestor}</div>
-                    <div className="col">{row.status}</div>
-                    <div className="col">{row.dateopened}</div>
-                    <FontAwesomeIcon icon={faHeart} color="green" size="xl" />
+                    <div className="row-data">
+                        <div className="col">{row.request}</div>
+                        <div className="col">{row.requestor}</div>
+                        <div className="col">{row.status}</div>
+                        <div className="col">{row.dateopened}</div>
+                    </div>
+                    <div className="up-vote-container">
+                        <FontAwesomeIcon icon={faHeart} className="up-vote" />
+                    </div>
                 </div>
             ))}
         </div>
     );
 };
 
-export default RowTemplate;
+export default FormattedRows;

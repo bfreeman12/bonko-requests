@@ -7,7 +7,7 @@ import { Query, QueryClient, QueryClientProvider, useQuery } from "react-query";
 import "../css/style.css";
 import "../css/home.css";
 import BonkoImg from "../media/bonko.png";
-import RowTemplate from "./rows";
+import FormattedRows from "./rows";
 
 const queryclient = new QueryClient()
 const Home = () => {
@@ -47,7 +47,7 @@ const Home = () => {
                   </div>
                 </row>
                 <QueryClientProvider client={queryclient}>
-                  <RowTemplate />
+                  <FormattedRows />
                 </QueryClientProvider>
               </div>
             </div>
