@@ -1,3 +1,2 @@
 node_modules
 /server/*
-/src/functions/apifetch.js

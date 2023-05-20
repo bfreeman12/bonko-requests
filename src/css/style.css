@@ -1,5 +1,5 @@
 :root {
-  --bonko-background: linear-gradient(0deg, rgb(19, 19, 19), rgb(46, 46, 46));
+  --bonko-background: brown;
 
   --primary-hue-rotate: 200deg;
   --bonko-primary-key: var(--primary-hue-rotate), 100%;
