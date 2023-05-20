@@ -9,6 +9,7 @@ const http_port = 8000
 app.use(cors({
     origin: 'http://10.0.0.248:3000'
 }))
+
 app.use(bodyParser.json())
 
 app.listen(http_port, () => {
