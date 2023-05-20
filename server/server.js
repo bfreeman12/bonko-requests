@@ -32,7 +32,6 @@ app.get("/api/requests", (req, res) => {
 
 app.post("/api/upvote", (req, res) => {
     const { id, upvotes } = req.body;
-    console.log(req.body)
     const sql = "UPDATE ideaTable SET upvotes = ? WHERE uid = ?";
     const params = [upvotes, id];
 
