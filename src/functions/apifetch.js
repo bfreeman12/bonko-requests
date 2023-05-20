@@ -10,14 +10,4 @@ async function fetchRequests() {
     }
 }
 
-async function postNewUpvotes(id, upvotes) {
-    try {
-        const response = await axios.post('http://10.0.0.248:8000/api/upvote', { id, upvotes });
-        return response.data.data;
-    } catch (error) {
-        console.error('Error posting new upvotes:', error);
-        throw error;
-    }
-}
-
-export { fetchRequests, postNewUpvotes }
+export default fetchRequests;
