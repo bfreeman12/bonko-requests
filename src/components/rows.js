@@ -41,8 +41,7 @@ const FormattedRows = () => {
                                 <FontAwesomeIcon icon={faHeart} className="up-vote" onClick={(e) => handleClick(e, row.uid, row.upvotes)} />
                             </div> :
                             <div>
-                                {row.upvotes}
-                                <FontAwesomeIcon icon={faHeart} className="up-vote" onClick={(e) => handleClick(e, row.uid, row.upvotes)} />
+                                {row.upvotes} <FontAwesomeIcon icon={faHeart} className="up-vote" onClick={(e) => handleClick(e, row.uid, row.upvotes)} />
                             </div>
                         }
                     </div>
