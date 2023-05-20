@@ -4,6 +4,12 @@ import Footer from "../functional-components/footer";
 import "../css/style.css";
 import "../css/home.css";
 import BonkoImg from "../media/bonko.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+//use these to animate "liking" the idea
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-regular-svg-icons"
+
 
 class Home extends React.Component {
   constructor() {
@@ -17,18 +23,17 @@ class Home extends React.Component {
           <div className="content-container">
             <div className="header-wrapper">
               <div className="logo-wrapper">
-                <img src={BonkoImg}></img>
+                <img src={BonkoImg} alt=''></img>
                 <h1>
                   Bonko <br></br>Requests
                 </h1>
               </div>
               <div className="tabs-wrapper">
                 <div className="tab">
-                  <h3>Submit Request</h3>
+                  <button>Submit Request</button>
                 </div>
               </div>
             </div>
-
             <div className="table-body-container">
               <div className="table-body-content-container">
                 <div className="table-task-list">
@@ -51,18 +56,23 @@ class Home extends React.Component {
                     <div className="col">Roy Dewey Storey</div>
                     <div className="col">Open</div>
                     <div className="col">7</div>
+                    <FontAwesomeIcon icon={faHeart} color='green' size="xl" />
+
                   </row>
                   <row className="row">
                     <div className="col">Example item</div>
                     <div className="col">Roy Dewey Storey</div>
                     <div className="col">Open</div>
                     <div className="col">7</div>
+                    <FontAwesomeIcon icon={faHeart} color='blue' size="xl" />
+
                   </row>
                   <row className="row">
                     <div className="col">Example item</div>
                     <div className="col">Roy Dewey Storey</div>
                     <div className="col">Open</div>
                     <div className="col">7</div>
+                    <FontAwesomeIcon icon={faHeartSolid} color="red" size="xl" />
                   </row>
                 </div>
               </div>
