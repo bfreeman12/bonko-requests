@@ -39,6 +39,7 @@ async function postNewRequest(request, description, requestor, email, office, da
         const requestStatus = 'Awaiting Response'
 
         const response = await axios.post(postUrl + endpoint[2], { request, description, requestor, email, office, daterequested, requestStatus });
+
         return response.data.data
     } catch (error) {
         console.error('Error posting new request: ', error)

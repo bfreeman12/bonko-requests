@@ -24,21 +24,19 @@ const Home = () => {
 
   function openModal() {
     setIsOpen(true);
-    console.log(modalIsOpen)
   }
   function closeModal() {
-    setIsOpen(false)
-    console.log(modalIsOpen)
+    setIsOpen(false);
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await postNewRequest(ticketRequestTitle, ticketDescription, ticketName, ticketEmail, ticketOffice);
-
       closeModal();
+      await postNewRequest(ticketRequestTitle, ticketDescription, ticketName, ticketEmail, ticketOffice);
     } catch (error) {
+      closeModal();
       console.error('Error posting new request:', error);
     }
   };
