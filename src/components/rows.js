@@ -18,7 +18,7 @@ const FormattedRows = () => {
         <div className="data-wrapper">
             {data.map((row, index) => (
                 <div className="row" key={index}>
-                    <div className="row-data">
+                    <div className="row-data" title={row.description}>
                         <div className="col">{row.request}</div>
                         <div className="col">{row.requestor}</div>
                         <div className="col">{row.status}</div>
