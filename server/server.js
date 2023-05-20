@@ -51,6 +51,18 @@ app.post("/api/upvote", (req, res) => {
     });
 });
 
+app.post('/api/submit-request', (req, res) => {
+    const { request, description, requestor, email, office, daterequested, requestStatus } = req.body;
+    const sql = "INSERT INTO ideaTable (request, description, requestor, email, office, dateopened, status, upvotes) VALUES (?, ?, ?, ?, ?, ?, ?, 0)";
+    const params = [request, description, requestor, email, office, daterequested, requestStatus];
+
+    db.run(sql, params, function (err) {
+        if (err) {
+            res.status(400).json({ "error": err.message });
+            return;
+        }
+    });
+});
 
 app.use(function (req, res) {
     res.status(404).send("404 - Not Found");

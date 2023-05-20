@@ -70,6 +70,8 @@ h3 {
   border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
   background-color: var(--low-opacity-background);
   transition-duration: 0.25s;
+  user-select: none;
+
 }
 
 .tab:hover {
