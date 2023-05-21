@@ -57,7 +57,13 @@ function AdminModal(props) {
               </div>
               <div className="output-field-container">
                 <p>Status:</p>
-                <h4>{selectedObject.status}</h4>
+                <select>
+                  <option value={0}>Awaiting Response</option>
+                  <option value={1}>In Progress</option>
+                  <option value={2}>Completed</option>
+                  <option value={3}>No</option>
+                </select>
+                {/* <h4>{selectedObject.status}</h4> */}
               </div>
             </div>
             <div className="button-wrapper">

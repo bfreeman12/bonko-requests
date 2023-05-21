@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
 // import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { useQuery } from "react-query";
 import { fetchRequests, postNewUpvotes } from "../functions/apifetch";
@@ -10,7 +11,7 @@ const FormattedRows = (props) => {
     fetchRequests
   );
 
-  const handleClick = async (e, id, currentUpvotes) => {
+  const handleClick = async (e, index, id, currentUpvotes) => {
     e.preventDefault();
     const newUpvotes = currentUpvotes + 1;
     try {
@@ -18,6 +19,7 @@ const FormattedRows = (props) => {
     } catch (error) {
       console.error("Error posting upvotes:", error);
     }
+    document.getElementById("heart" + index).classList.add("color-changed");
   };
 
   if (isLoading) {
@@ -39,33 +41,27 @@ const FormattedRows = (props) => {
     <div className="data-wrapper">
       {data.map((row, index) => (
         <div className="row" key={index}>
-          <div className="row-data" title={row.description}>
-            <div className="col" onClick={(row) => handleRowClick(index)}>
-              {row.request}
-            </div>
+          <div
+            className="row-data"
+            onClick={(row) => handleRowClick(index)}
+            title={row.description}
+          >
+            <div className="col">{row.request}</div>
             <div className="col">{row.requestor}</div>
             <div className="col">{row.status}</div>
             <div className="col">{row.dateopened}</div>
           </div>
           <div className="up-vote-container">
-            {row.upvotes === 0 ? (
-              <div>
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  className="up-vote"
-                  onClick={(e) => handleClick(e, row.uid, row.upvotes)}
-                />
-              </div>
-            ) : (
-              <div>
-                {row.upvotes}{" "}
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  className="up-vote"
-                  onClick={(e) => handleClick(e, row.uid, row.upvotes)}
-                />
-              </div>
-            )}
+            {/* I'm sorry for taking away your ternary operator, but it was complicating things*/}
+            {row.upvotes}
+            <FontAwesomeIcon
+              icon={farHeart}
+              className="up-vote"
+              id={"heart" + index}
+              onClick={(e, index) =>
+                handleClick(e, index, row.uid, row.upvotes)
+              }
+            />
           </div>
         </div>
       ))}

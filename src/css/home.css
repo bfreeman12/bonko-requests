@@ -116,7 +116,7 @@ h3 {
 .table-task-list .header {
   display: flex;
   flex-direction: row;
-  padding-right: 3rem;
+  padding-right: 3.25rem;
 }
 
 .table-task-list .header .col {
@@ -161,9 +161,8 @@ h3 {
 .data-wrapper .row-data .col:last-of-type {
   border-radius: 0rem 0.25rem 0.25rem 0rem;
 }
-.data-wrapper .row-data .col:first-of-type:hover {
+.data-wrapper .row-data:hover {
   cursor: pointer;
-  color: var(--bonko-primary);
 }
 
 .table-task-list .up-vote-container {
@@ -172,6 +171,8 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem;
 }
 
 .up-vote {
@@ -202,4 +203,7 @@ h3 {
 .body-footer p {
   font-weight: 300;
   font-size: 0.9rem;
+}
+.color-changed {
+  color: red;
 }

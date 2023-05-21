@@ -48,3 +48,15 @@
 .admin-modal-info-output-container p {
   font-weight: 300;
 }
+.admin-modal-info-output-container select {
+  border: none;
+  background-color: var(--low-opacity-background);
+  color: var(--bonko-text);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-weight: 600;
+}
+.admin-modal-info-output-container select:hover {
+  cursor: pointer;
+  background-color: var(--bonko-primary-darker);
+}

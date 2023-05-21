@@ -73,11 +73,7 @@ const Home = () => {
                     Submit Request
                   </button>
                 </div>
-                {/* <div className="tab">
-                  <button onClick={openAdminModal} id="open-modal-button">
-                    Admin
-                  </button>
-                </div> */}
+
                 {/* not elegant */}
                 <SubmitModal
                   modalIsOpen={modalIsOpen}
