@@ -19,7 +19,7 @@ const FormattedRows = (props) => {
     } catch (error) {
       console.error("Error posting upvotes:", error);
     }
-    document.getElementById("heart" + index).classList.add("color-changed");
+    // document.getElementById("heart" + index).classList.add("color-changed");
   };
 
   if (isLoading) {
