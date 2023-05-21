@@ -3,24 +3,24 @@ import Footer from "../functional-components/footer";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "../css/style.css";
 import "../css/home.css";
-import "../css/modal.css"
 import BonkoImg from "../media/bonko.png";
 import FormattedRows from "./rows";
-import Modal from 'react-modal';
+import AdminModal from "./admin-modal";
+import SubmitModal from "./submit-modal";
 import { postNewRequest } from "../functions/apifetch";
 
-
-const queryclient = new QueryClient()
-Modal.setAppElement('#root')
-
+const queryclient = new QueryClient();
 
 const Home = () => {
-  const [modalIsOpen, setIsOpen] = useState(false)
-  const [ticketRequestTitle, setTicketRequestTitle] = useState('')
-  const [ticketDescription, setTicketDescription] = useState('')
-  const [ticketName, setTicketName] = useState('')
-  const [ticketEmail, setTicketEmail] = useState('')
-  const [ticketOffice, setTicketOffice] = useState('')
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [ticketRequestTitle, setTicketRequestTitle] = useState("");
+  const [ticketDescription, setTicketDescription] = useState("");
+  const [ticketName, setTicketName] = useState("");
+  const [ticketEmail, setTicketEmail] = useState("");
+  const [ticketOffice, setTicketOffice] = useState("");
+
+  const [adminModalStatus, setAdminModalStatus] = useState(false);
+  const [selectedObject, setSelectedObject] = useState({});
 
   function openModal() {
     setIsOpen(true);
@@ -29,15 +29,29 @@ const Home = () => {
     setIsOpen(false);
   }
 
+  function openAdminModal() {
+    setAdminModalStatus(true);
+  }
+  function closeAdminModal() {
+    setAdminModalStatus(false);
+    return adminModalStatus;
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       closeModal();
-      await postNewRequest(ticketRequestTitle, ticketDescription, ticketName, ticketEmail, ticketOffice);
+      await postNewRequest(
+        ticketRequestTitle,
+        ticketDescription,
+        ticketName,
+        ticketEmail,
+        ticketOffice
+      );
     } catch (error) {
       closeModal();
-      console.error('Error posting new request:', error);
+      console.error("Error posting new request:", error);
     }
   };
 
@@ -48,49 +62,45 @@ const Home = () => {
           <div className="content-container">
             <div className="header-wrapper">
               <div className="logo-wrapper">
-                <img src={BonkoImg} alt=''></img>
+                <img src={BonkoImg} alt=""></img>
                 <h1>
                   Bonko <br></br>Requests
                 </h1>
               </div>
               <div className="tabs-wrapper">
                 <div className="tab">
-                  <button onClick={openModal} id="open-modal-button">Submit Request</button>
+                  <button onClick={openModal} id="open-modal-button">
+                    Submit Request
+                  </button>
                 </div>
-                < Modal isOpen={modalIsOpen} onRequestClose={closeModal} contentLabel="test modal" className='modal' overlayClassName="overlay" >
-                  <div className="modal-content-container">
-                    <div className="modal-info-input-container">
-                      <div className="submit-ticket-header">
-                        <h1>Submit a Ticket</h1>
-                        <button onClick={closeModal}>Close Modal</button>
-                      </div>
-                      <form onSubmit={handleSubmit}>
-                        <label>Request</label>
-                        <input required={true} onChange={(event) => setTicketRequestTitle(event.target.value)}></input>
-                        <label>Description</label>
-                        <textarea required={true} onChange={(event) => setTicketDescription(event.target.value)} ></textarea>
-                        <label>Name</label>
-                        <input required={true} onChange={(event) => setTicketName(event.target.value)}></input>
-                        <label>Email</label>
-                        <input required={true} onChange={(event) => setTicketEmail(event.target.value)}></input>
-                        <label>Office</label>
-                        <input required={true} onChange={(event) => setTicketOffice(event.target.value)}></input>
-                        <button type="submit">Submit Ticket</button>
-                      </form>
-                    </div>
-                    <div className="modal-info-output-container">
-                      <h2>{ticketRequestTitle}</h2>
-                      <div>
-                        <p>{ticketDescription}</p>
-                        <div className="row space-between">
-                          <p>{ticketName}</p>
-                          <p>{ticketEmail}</p>
-                          <p>{ticketOffice}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Modal >
+                {/* <div className="tab">
+                  <button onClick={openAdminModal} id="open-modal-button">
+                    Admin
+                  </button>
+                </div> */}
+                {/* not elegant */}
+                <SubmitModal
+                  modalIsOpen={modalIsOpen}
+                  closeModal={closeModal}
+                  handleSubmit={handleSubmit}
+                  setTicketRequestTitle={setTicketRequestTitle}
+                  setTicketDescription={setTicketDescription}
+                  setTicketName={setTicketName}
+                  setTicketEmail={setTicketEmail}
+                  setTicketOffice={setTicketOffice}
+                  ticketRequestTitle={ticketRequestTitle}
+                  ticketDescription={ticketDescription}
+                  ticketName={ticketName}
+                  ticketEmail={ticketEmail}
+                  ticketOffice={ticketOffice}
+                />
+
+                {/* elegant */}
+                <AdminModal
+                  closeAdminModal={closeAdminModal}
+                  adminModalStatus={adminModalStatus}
+                  selectedObject={selectedObject}
+                />
               </div>
             </div>
             <div className="table-body-container">
@@ -107,10 +117,13 @@ const Home = () => {
                       <h3>Status</h3>
                     </div>
                     <div className="col">
-                      <h3>Days Since Request</h3>
+                      <h3>Date Requested</h3>
                     </div>
                   </row>
-                  <FormattedRows />
+                  <FormattedRows
+                    setSelectedObject={setSelectedObject}
+                    openAdminModal={openAdminModal}
+                  />
                 </div>
               </div>
             </div>
@@ -129,7 +142,6 @@ const Home = () => {
       <Footer />
     </div>
   );
-}
-
+};
 
 export default Home;

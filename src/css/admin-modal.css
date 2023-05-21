@@ -1,0 +1,50 @@
+.ticket-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  /* height: 5vh; */
+  /* background-color: red; */
+  justify-content: space-between;
+}
+.button-wrapper button {
+  border: none;
+  background-color: var(--low-opacity-background);
+  color: var(--bonko-text);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+.button-wrapper button:hover {
+  cursor: pointer;
+  background-color: var(--bonko-primary-darker);
+}
+.admin-modal-info-output-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  /* background-color: rgb(39, 39, 39); */
+  padding: 2rem 8rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto;
+}
+
+.admin-modal-info-output-container h2 {
+  font-weight: 300;
+}
+
+.admin-modal-info-output-container p {
+  font-weight: 300;
+}
