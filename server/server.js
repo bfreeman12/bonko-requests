@@ -4,10 +4,10 @@ const db = require('./database.js')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
-const http_port = 8000
+const http_port = 8420
 
 app.use(cors({
-    origin: 'http://10.0.0.248:3000'
+    origin: 'http://192.168.0.192:3000'
 }))
 
 app.use(bodyParser.json())
