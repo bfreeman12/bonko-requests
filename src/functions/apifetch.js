@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const postUrl = "http://192.168.0.192:8420/api/";
-const endpoint = ["requests", "upvote", "submit-request"];
+const postUrl = "http://192.168.86.139:8420/api/";
+const endpoint = [
+  "requests",
+  "upvote",
+  "submit-request",
+  "delete-request",
+  "update-request",
+];
 
 async function fetchRequests() {
   try {
@@ -62,4 +68,32 @@ async function postNewRequest(
     console.error("Error posting new request: ", error);
   }
 }
-export { fetchRequests, postNewUpvotes, postNewRequest };
+
+async function postDeleteRequest(id) {
+  try {
+    const response = await axios.post(postUrl + endpoint[3], { uid: id });
+    return response.data.data;
+  } catch (error) {
+    console.error("Error deleting request:", error);
+    throw error;
+  }
+}
+async function postUpdateRequest(id, selectValue) {
+  try {
+    const response = await axios.post(postUrl + endpoint[4], {
+      uid: id,
+      selectValue: selectValue,
+    });
+    return response.data.data;
+  } catch (error) {
+    console.error("Error deleting request:", error);
+    throw error;
+  }
+}
+export {
+  fetchRequests,
+  postNewUpvotes,
+  postNewRequest,
+  postDeleteRequest,
+  postUpdateRequest,
+};

@@ -1,11 +1,23 @@
-import React, { useState } from "react";
 import Modal from "react-modal";
 import "../css/admin-modal.css";
+import { postDeleteRequest, postUpdateRequest } from "../functions/apifetch";
 
 function AdminModal(props) {
   Modal.setAppElement("#root");
 
   const selectedObject = props.selectedObject;
+
+  const handleDeleteRequest = (id) => {
+    postDeleteRequest(id);
+    props.closeAdminModal();
+  };
+  const handleUpdateRequest = () => {
+    const selectedValue = document.getElementById(
+      "update-request-selector"
+    ).value;
+    postUpdateRequest(selectedObject.uid, selectedValue);
+    props.closeAdminModal();
+  };
 
   return (
     <Modal
@@ -57,18 +69,28 @@ function AdminModal(props) {
               </div>
               <div className="output-field-container">
                 <p>Status:</p>
-                <select>
-                  <option value={0}>Awaiting Response</option>
-                  <option value={1}>In Progress</option>
-                  <option value={2}>Completed</option>
-                  <option value={3}>No</option>
+                <select id="update-request-selector" select="Awaiting Response">
+                  <option value="Awaiting Response">Awaiting Response</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                  <option value="No">No</option>
                 </select>
                 {/* <h4>{selectedObject.status}</h4> */}
               </div>
             </div>
             <div className="button-wrapper">
-              <button id="delete-submission-button">Delete Request</button>
-              <button id="update-submission-button">Update Request</button>
+              <button
+                id="delete-submission-button"
+                onClick={() => handleDeleteRequest(selectedObject.uid)}
+              >
+                Delete Request
+              </button>
+              <button
+                id="update-submission-button"
+                onClick={() => handleUpdateRequest(selectedObject.uid)}
+              >
+                Update Request
+              </button>
             </div>
           </div>
         </div>
