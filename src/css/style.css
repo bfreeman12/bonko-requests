@@ -1,27 +1,26 @@
 :root {
-  --bonko-background: #0d1118;
+  --bonko-background: #fef8f3;
 
-  --primary-hue-rotate: 200deg;
-  --bonko-primary-key: var(--primary-hue-rotate), 100%;
+  --primary-hue-rotate: 203deg;
+  --bonko-primary-key: var(--primary-hue-rotate), 82%;
 
   --bonko-primary: hsl(var(--bonko-primary-key), 66%);
   --bonko-primary-dark: hsl(var(--bonko-primary-key), 55%);
-  --bonko-primary-darker: hsl(var(--bonko-primary-key), 100%, 40%);
-  --bonko-text: hsl(var(--bonko-primary-key), 100%, 90%);
+  --bonko-primary-darker: hsl(var(--bonko-primary-key), 44%, 20%);
+  --bonko-text: hsl(var(--bonko-primary-key), 25%, 90%);
   --bonko-dark-text: hsl(var(--bonko-primary-key), 60%);
   --bonko-login-text: hsl(var(--bonko-primary-key), 70%);
   --bonko-background-div: hsl(var(--bonko-primary-key), 66%);
 
   --border: 1px var(--bonko-primary-darker) solid;
-  --low-opacity-background: hsl(var(--bonko-primary-key), 80%, 10%);
-  --low-opacity-background-secondary: hsl(var(--bonko-primary-key), 80%, 5%);
+  --low-opacity-background: hsl(var(--bonko-primary-key), 90%, 30%);
+  --low-opacity-background-secondary: hsl(var(--bonko-primary-key), 80%, 40%);
 }
 
 body {
   background: var(--bonko-background);
   margin: 0px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: var(--bonko-text);
   overflow: hidden;
 }

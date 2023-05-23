@@ -61,6 +61,7 @@ const Home = () => {
         <QueryClientProvider client={queryclient}>
           <div className="content-container">
             <div className="header-wrapper">
+              <div></div>
               <div className="logo-wrapper">
                 <img src={BonkoImg} alt=""></img>
                 <h1>

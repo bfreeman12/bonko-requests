@@ -4,8 +4,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--low-opacity-background);
-  backdrop-filter: blur(100px);
+  background-color: var(--low-opacity-background-secondary);
+  backdrop-filter: blur(0px);
 }
 
 .modal {

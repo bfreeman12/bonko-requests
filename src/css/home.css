@@ -5,8 +5,9 @@
 }
 
 .body-container {
-  padding: 4rem 16vw;
+  padding: 4rem 12vw;
   width: 100%;
+  backdrop-filter: blur(50px);
 }
 
 .content-container {
@@ -44,7 +45,7 @@
 h3 {
   text-align: right;
   margin: 0px;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .logo-wrapper img {
@@ -146,6 +147,8 @@ h3 {
   border-radius: 0.5rem;
   background-color: var(--low-opacity-background);
   transition-duration: 0.25s;
+  font-weight: 400;
+  color: hsl(0, 0%, 35%);
   /* padding: 0rem 2rem; */
 }
 
@@ -161,6 +164,7 @@ h3 {
 .data-wrapper .row-data .col:last-of-type {
   border-radius: 0rem 0.25rem 0.25rem 0rem;
 }
+
 .data-wrapper .row-data:hover {
   cursor: pointer;
 }
@@ -204,6 +208,7 @@ h3 {
   font-weight: 300;
   font-size: 0.9rem;
 }
+
 .color-changed {
   color: red;
 }
