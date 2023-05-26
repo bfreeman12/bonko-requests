@@ -4,7 +4,6 @@ import { postDeleteRequest, postUpdateRequest } from "../functions/apifetch";
 
 function AdminModal(props) {
   Modal.setAppElement("#root");
-
   const selectedObject = props.selectedObject;
 
   const handleDeleteRequest = (id) => {

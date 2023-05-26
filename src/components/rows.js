@@ -1,25 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
-import { faHeart as fasHeart } from "@fortawesome/free-solid-svg-icons";
-// import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons"
 import { useQuery } from "react-query";
 import { fetchRequests, postNewUpvotes } from "../functions/apifetch";
+import React, { useEffect } from "react";
 
 const FormattedRows = (props) => {
-  const { data, error, isError, isLoading } = useQuery(
+  const { data, error, isError, isLoading, refetch } = useQuery(
     "userRequests",
     fetchRequests
   );
 
+  useEffect(() => {
+    refetch();
+  });
+
   const handleClick = async (e, index, id, currentUpvotes) => {
     e.preventDefault();
     const newUpvotes = currentUpvotes + 1;
+
     try {
       await postNewUpvotes(id, newUpvotes);
+      refetch();
     } catch (error) {
       console.error("Error posting upvotes:", error);
     }
-    // document.getElementById("heart" + index).classList.add("color-changed");
   };
 
   if (isLoading) {
@@ -31,8 +35,6 @@ const FormattedRows = (props) => {
   }
 
   function handleRowClick(index) {
-    // if(isAuthenticated){props.openAdminModal()}
-    // I think this is how auth0 will work?
     props.setSelectedObject(data[index]);
     props.openAdminModal();
   }
@@ -52,7 +54,6 @@ const FormattedRows = (props) => {
             <div className="col">{row.dateopened}</div>
           </div>
           <div className="up-vote-container">
-            {/* I'm sorry for taking away your ternary operator, but it was complicating things*/}
             {row.upvotes}
             <FontAwesomeIcon
               icon={farHeart}

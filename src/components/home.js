@@ -13,6 +13,7 @@ const queryclient = new QueryClient();
 
 const Home = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
+
   const [ticketRequestTitle, setTicketRequestTitle] = useState("");
   const [ticketDescription, setTicketDescription] = useState("");
   const [ticketName, setTicketName] = useState("");
@@ -21,12 +22,14 @@ const Home = () => {
 
   const [adminModalStatus, setAdminModalStatus] = useState(false);
   const [selectedObject, setSelectedObject] = useState({});
+  const [modalClosed, setModalClosed] = useState(false);
 
   function openModal() {
     setIsOpen(true);
   }
   function closeModal() {
     setIsOpen(false);
+    setModalClosed(true);
   }
 
   function openAdminModal() {
@@ -120,6 +123,7 @@ const Home = () => {
                   <FormattedRows
                     setSelectedObject={setSelectedObject}
                     openAdminModal={openAdminModal}
+                    modalClosed={modalClosed}
                   />
                 </div>
               </div>
@@ -129,7 +133,7 @@ const Home = () => {
                 The intent of this webapp is to provide web solutions for all
                 shops in 89CS. If you have any ideas on how the squadron could
                 be improved from any web applications, submit an idea and Bonko
-                will determine feasability. Please do not put any CUI, Secret,
+                will determine feasibility. Please do not put any CUI, Secret,
                 or TS information on this website.
               </p>
             </div>

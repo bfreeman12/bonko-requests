@@ -8,7 +8,7 @@ const http_port = 8420;
 
 app.use(
   cors({
-    origin: "http://192.168.86.139:3000",
+    origin: "http://192.168.0.32:3000",
   })
 );
 
@@ -84,7 +84,6 @@ app.post("/api/submit-request", (req, res) => {
 });
 app.post("/api/delete-request", (req, res) => {
   const { uid, id } = req.body;
-  console.log(uid, id);
   const sql = "DELETE from ideaTable where uid= ?";
   db.run(sql, uid, function (err) {
     if (err) {
@@ -95,10 +94,8 @@ app.post("/api/delete-request", (req, res) => {
 });
 
 app.post("/api/update-request", (req, res) => {
-  // console.log(req.body);
   const { uid, selectValue } = req.body;
-  console.log(uid);
-  console.log(selectValue);
+
   const sql = "UPDATE ideaTable SET status= ? where uid= ?";
   const params = [selectValue, uid];
   db.run(sql, params, function (err) {
