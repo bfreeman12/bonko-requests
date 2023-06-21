@@ -5,8 +5,11 @@ import "../css/style.css";
 import "../css/home.css";
 import BonkoImg from "../media/bonko.png";
 import FormattedRows from "./rows";
+import CompletedFormattedRows from "./completed-rows";
+import DeniedFormattedRows from "./denied-rows";
 import AdminModal from "./admin-modal";
 import SubmitModal from "./submit-modal";
+// import CompletedModal from './completed-modal'
 import { postNewRequest } from "../functions/apifetch";
 
 const queryclient = new QueryClient();
@@ -23,6 +26,7 @@ const Home = () => {
   const [adminModalStatus, setAdminModalStatus] = useState(false);
   const [selectedObject, setSelectedObject] = useState({});
   const [modalClosed, setModalClosed] = useState(false);
+
 
   function openModal() {
     setIsOpen(true);
@@ -101,11 +105,13 @@ const Home = () => {
                   adminModalStatus={adminModalStatus}
                   selectedObject={selectedObject}
                 />
+
               </div>
             </div>
             <div className="table-body-container">
               <div className="table-body-content-container">
                 <div className="table-task-list">
+                <h2>Awaiting Response/In Progress</h2>
                   <row className="header row">
                     <div className="col">
                       <h3>Request</h3>
@@ -121,6 +127,58 @@ const Home = () => {
                     </div>
                   </row>
                   <FormattedRows
+                    setSelectedObject={setSelectedObject}
+                    openAdminModal={openAdminModal}
+                    modalClosed={modalClosed}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="table-body-container">
+              <div className="table-body-content-container">
+                <div className="table-task-list">
+                <h2>Completed Requests</h2>
+                  <row className="header row">
+                    <div className="col">
+                      <h3>Request</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Requested By</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Status</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Date Requested</h3>
+                    </div>
+                  </row>
+                  <CompletedFormattedRows
+                    setSelectedObject={setSelectedObject}
+                    openAdminModal={openAdminModal}
+                    modalClosed={modalClosed}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="table-body-container">
+              <div className="table-body-content-container">
+                <div className="table-task-list">
+                <h2>Denied Requests</h2>
+                  <row className="header row">
+                    <div className="col">
+                      <h3>Request</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Requested By</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Status</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Date Requested</h3>
+                    </div>
+                  </row>
+                  <DeniedFormattedRows
                     setSelectedObject={setSelectedObject}
                     openAdminModal={openAdminModal}
                     modalClosed={modalClosed}

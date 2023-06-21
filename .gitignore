@@ -2,3 +2,4 @@ node_modules
 /server/*
 /functions/api.fetch.js
 .env
+requests.db

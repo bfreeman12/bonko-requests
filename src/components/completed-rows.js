@@ -34,18 +34,18 @@ const FormattedRows = (props) => {
     return <div>Error! {error.message}</div>;
   }
 
-  const inpro_or_await_items = data.filter(object=>{
-    return object.status === 'Awaiting Response' || object.status === 'In Progress' 
+  const completed_items = data.filter(object=>{
+    return object.status === 'Completed'
   })
 
   function handleRowClick(index) {
-    props.setSelectedObject(inpro_or_await_items[index]);
+    props.setSelectedObject(completed_items[index]);
     props.openAdminModal();
   }
 
   return (
     <div className="data-wrapper">
-      {inpro_or_await_items.map((row, index) => (
+      {completed_items.map((row, index) => (
         <div className="row" key={index}>
           <div
             className="row-data"

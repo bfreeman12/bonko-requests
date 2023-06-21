@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const postUrl = `http://192.168.0.192:8420/api/`;
+const postUrl = `http://172.16.220.218:8420/api/`;
 const endpoint = [
   "requests",
   "upvote",
@@ -86,7 +86,7 @@ async function postUpdateRequest(id, selectValue) {
     });
     return response.data.data;
   } catch (error) {
-    console.error("Error deleting request:", error);
+    console.error("Error updating request:", error);
     throw error;
   }
 }

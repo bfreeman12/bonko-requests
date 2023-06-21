@@ -2,7 +2,7 @@
   background-color: var(--low-opacity-background);
   height: 2rem;
   width: 100%;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0px;
   display: flex;
   justify-content: center;

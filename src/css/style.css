@@ -1,7 +1,7 @@
 :root {
-  --bonko-background: #fef8f3;
+  --bonko-background: white;
 
-  --primary-hue-rotate: 203deg;
+  --primary-hue-rotate: 60deg;
   --bonko-primary-key: var(--primary-hue-rotate), 82%;
 
   --bonko-primary: hsl(var(--bonko-primary-key), 66%);
@@ -22,7 +22,7 @@ body {
   margin: 0px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: var(--bonko-text);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .space-between {

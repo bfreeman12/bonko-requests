@@ -20,7 +20,7 @@
     "react-modal": "^3.16.1",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.11.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^4.0.1",
     "reactjs-alert": "^2.2.0",
     "sqlite3": "^5.1.6",
     "web-vitals": "^2.1.4"
@@ -48,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-webpack-plugin": "^4.0.1"
   }
 }

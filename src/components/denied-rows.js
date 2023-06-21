@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { fetchRequests, postNewUpvotes } from "../functions/apifetch";
 import React, { useEffect } from "react";
 
-const FormattedRows = (props) => {
+const DeniedFormattedRows = (props) => {
   const { data, error, isError, isLoading, refetch } = useQuery(
     "userRequests",
     fetchRequests
@@ -34,18 +34,18 @@ const FormattedRows = (props) => {
     return <div>Error! {error.message}</div>;
   }
 
-  const inpro_or_await_items = data.filter(object=>{
-    return object.status === 'Awaiting Response' || object.status === 'In Progress' 
+  const denied_items = data.filter(object=>{
+    return object.status === 'No'
   })
 
   function handleRowClick(index) {
-    props.setSelectedObject(inpro_or_await_items[index]);
+    props.setSelectedObject(denied_items[index]);
     props.openAdminModal();
   }
 
   return (
     <div className="data-wrapper">
-      {inpro_or_await_items.map((row, index) => (
+      {denied_items.map((row, index) => (
         <div className="row" key={index}>
           <div
             className="row-data"
@@ -74,4 +74,4 @@ const FormattedRows = (props) => {
   );
 };
 
-export default FormattedRows;
+export default DeniedFormattedRows;
