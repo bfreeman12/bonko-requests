@@ -4,6 +4,9 @@ import { useQuery } from "react-query";
 import { fetchRequests, postNewUpvotes } from "../functions/apifetch";
 import React, { useEffect } from "react";
 
+
+// Id really like it if we could combine inpro and awaiting, but I ran out of time today.
+
 const FormattedRows = (props) => {
 
   function filterData(desiredData){
