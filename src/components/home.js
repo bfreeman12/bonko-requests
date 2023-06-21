@@ -111,7 +111,7 @@ const Home = () => {
             <div className="table-body-container">
               <div className="table-body-content-container">
                 <div className="table-task-list">
-                <h2>Awaiting Response/In Progress</h2>
+                <h2>In Progress</h2>
                   <row className="header row">
                     <div className="col">
                       <h3>Request</h3>
@@ -130,6 +130,34 @@ const Home = () => {
                     setSelectedObject={setSelectedObject}
                     openAdminModal={openAdminModal}
                     modalClosed={modalClosed}
+                    desiredData={'inprogress'}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="table-body-container">
+              <div className="table-body-content-container">
+                <div className="table-task-list">
+                <h2>Awaiting Response</h2>
+                  <row className="header row">
+                    <div className="col">
+                      <h3>Request</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Requested By</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Status</h3>
+                    </div>
+                    <div className="col">
+                      <h3>Date Requested</h3>
+                    </div>
+                  </row>
+                  <FormattedRows
+                    setSelectedObject={setSelectedObject}
+                    openAdminModal={openAdminModal}
+                    modalClosed={modalClosed}
+                    desiredData={'awaiting'}
                   />
                 </div>
               </div>
@@ -152,10 +180,11 @@ const Home = () => {
                       <h3>Date Requested</h3>
                     </div>
                   </row>
-                  <CompletedFormattedRows
+                  <FormattedRows
                     setSelectedObject={setSelectedObject}
                     openAdminModal={openAdminModal}
                     modalClosed={modalClosed}
+                    desiredData={'completed'}
                   />
                 </div>
               </div>
@@ -178,10 +207,11 @@ const Home = () => {
                       <h3>Date Requested</h3>
                     </div>
                   </row>
-                  <DeniedFormattedRows
+                  <FormattedRows
                     setSelectedObject={setSelectedObject}
                     openAdminModal={openAdminModal}
                     modalClosed={modalClosed}
+                    desiredData={'denied'}
                   />
                 </div>
               </div>

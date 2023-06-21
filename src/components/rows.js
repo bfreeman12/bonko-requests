@@ -5,6 +5,22 @@ import { fetchRequests, postNewUpvotes } from "../functions/apifetch";
 import React, { useEffect } from "react";
 
 const FormattedRows = (props) => {
+
+  function filterData(desiredData){
+    if(desiredData == 'inprogress'){
+      return ('In Progress')
+    }
+    else if(desiredData == 'awaiting'){
+      return ('Awaiting Response');
+    }
+    else if(desiredData == 'completed'){
+      return ('Completed')
+    }
+    else if(desiredData == 'denied'){
+      return ('No')
+    }
+  }
+
   const { data, error, isError, isLoading, refetch } = useQuery(
     "userRequests",
     fetchRequests
@@ -34,18 +50,18 @@ const FormattedRows = (props) => {
     return <div>Error! {error.message}</div>;
   }
 
-  const inpro_or_await_items = data.filter(object=>{
-    return object.status === 'Awaiting Response' || object.status === 'In Progress' 
+  const filteredItems = data.filter(object=>{
+    return object.status === filterData(props.desiredData)
   })
 
   function handleRowClick(index) {
-    props.setSelectedObject(inpro_or_await_items[index]);
+    props.setSelectedObject(filteredItems[index]);
     props.openAdminModal();
   }
 
   return (
     <div className="data-wrapper">
-      {inpro_or_await_items.map((row, index) => (
+      {filteredItems.map((row, index) => (
         <div className="row" key={index}>
           <div
             className="row-data"
