@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const postUrl = "http://192.168.0.32:8420/api/";
+const postUrl = `http://192.168.0.192:8420/api/`;
 const endpoint = [
   "requests",
   "upvote",

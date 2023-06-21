@@ -4,18 +4,22 @@ const db = require("./database.js");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
-const http_port = 8420;
+require('dotenv').config({ path: '../.env' });
+
+ip_address = process.env.IP;
+client_port = process.env.PORT;
+server_port = process.env.SERVER_PORT
 
 app.use(
   cors({
-    origin: "http://192.168.0.32:3000",
+    origin: `http://${ip_address}:${client_port}`,
   })
 );
 
 app.use(bodyParser.json());
 
-app.listen(http_port, () => {
-  console.log(`Server running on port ${http_port}`);
+app.listen(server_port, () => {
+  console.log(`Server running on port ${server_port}`);
 });
 
 app.get("/api/requests", (req, res) => {

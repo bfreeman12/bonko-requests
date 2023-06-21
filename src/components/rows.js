@@ -12,7 +12,7 @@ const FormattedRows = (props) => {
 
   useEffect(() => {
     refetch();
-  });
+  }, []);
 
   const handleClick = async (e, index, id, currentUpvotes) => {
     e.preventDefault();
