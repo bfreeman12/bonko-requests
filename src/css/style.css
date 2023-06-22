@@ -1,8 +1,8 @@
 :root {
   --bonko-background: white;
 
-  --primary-hue-rotate: 60deg;
-  --bonko-primary-key: var(--primary-hue-rotate), 82%;
+  --primary-hue-rotate: 200deg;
+  --bonko-primary-key: var(--primary-hue-rotate), 30%;
 
   --bonko-primary: hsl(var(--bonko-primary-key), 66%);
   --bonko-primary-dark: hsl(var(--bonko-primary-key), 55%);
